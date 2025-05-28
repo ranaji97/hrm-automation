@@ -46,7 +46,7 @@ public class EmployeeDetails {
 		this.lastName = lastName;
 	}
 
-	// Optional: Display employee details
+	// Display employee details
 	public void displayEmployeeDetails() {
 		System.out.println("First Name: " + firstName);
 		System.out.println("Middle Name: " + middleName);

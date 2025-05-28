@@ -18,7 +18,7 @@ import com.orangehrms.generic.BaseClass;
 public class PIMPage extends BaseClass {
 
 	private static WebDriverWait wait;
-	
+
 	@FindBy(xpath = "//a//span[contains(.,'Dashboard')]")
 	private WebElement dashBoardModule;
 
@@ -59,7 +59,7 @@ public class PIMPage extends BaseClass {
 	public void clickOnPIMModule() {
 		PIMModuleBtn.click();
 	}
-	
+
 	public void clickOnDashboardModule() {
 		dashBoardModule.click();
 	}
@@ -74,24 +74,24 @@ public class PIMPage extends BaseClass {
 		middleNameFld.sendKeys(middleName);
 		lastNameFld.sendKeys(lastName);
 
+		saveBtn.click();
+
 		try {
-			
-			List<WebElement> empIdFldExistsError = driver.findElements(By.xpath("//div[contains(@class, 'employee-form')]//div[contains(@class, 'label')][./label[normalize-space() = 'Employee Id']]//following-sibling::span[contains(., 'Employee Id already exists')]"));
+
+			List<WebElement> empIdFldExistsError = driver.findElements(By.xpath(
+					"//div[contains(@class, 'employee-form')]//div[contains(@class, 'label')][./label[normalize-space() = 'Employee Id']]//following-sibling::span[contains(., 'Employee Id already exists')]"));
 			if (empIdFldExistsError.size() >= 1) {
 				Random random = new Random();
 				int id = 100000 + random.nextInt(900000);
 
 				empIdFld.clear();
 				empIdFld.sendKeys(String.valueOf(id));
+				
+				saveBtn.click();
 			}
-		}
-		catch(NoSuchElementException e) {
+		} catch (NoSuchElementException e) {
 			System.out.println("Employee Id already exists did not occur. Not required to update id");
 		}
-
-		saveBtn.click();
-
-		waitForSuccessDialogBoxToBeDisplayed();
 
 		try {
 			waitForSpinnerToLoad();
@@ -104,12 +104,6 @@ public class PIMPage extends BaseClass {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.invisibilityOf(loadingSpinner));
-	}
-
-	public void waitForSuccessDialogBoxToBeDisplayed() {
-
-		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOf(successDialogContainer));
 	}
 
 }

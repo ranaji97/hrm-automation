@@ -50,23 +50,32 @@ public class EmployeeListPage extends BaseClass {
 
 		do {
 			if (allMatchingResults.size() == 0) {
-				if (paginationRight.isDisplayed()) {
-					paginationRight.click();
+				
+				List<WebElement> paginationRight = driver.findElements(By.xpath("//nav//ul[contains(@class, 'pagination')]//button[.//i[contains(@class, 'right')]]"));
+				if (paginationRight.size() >= 1) {
+					paginationRight.get(0).click();
 
 					pimPage = new PIMPage(driver);
 					pimPage.waitForSpinnerToLoad();
+					
+					allMatchingResults = getEmpAdded(firstName);
+
+					if (allMatchingResults.size() > 0) {
+						break;
+					}
+					else {
+						paginationRight = driver.findElements(By.xpath("//nav//ul[contains(@class, 'pagination')]//button[.//i[contains(@class, 'right')]]"));
+						paginationNext = paginationRight.size() >= 1;
+					}
+				}
+				else {
+					paginationNext = false;
 				}
 			}
-
-			allMatchingResults = getEmpAdded(firstName);
-
-			if (allMatchingResults.size() > 0) {
-				break;
+			else {
+				paginationNext = false;
 			}
 
-			if (paginationRight.isDisplayed()) {
-				paginationNext = true;
-			}
 		} while (paginationNext);
 
 		if (!(allMatchingResults.size() == 0)) {
