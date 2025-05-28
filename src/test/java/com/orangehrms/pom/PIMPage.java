@@ -18,6 +18,9 @@ import com.orangehrms.generic.BaseClass;
 public class PIMPage extends BaseClass {
 
 	private static WebDriverWait wait;
+	
+	@FindBy(xpath = "//a//span[contains(.,'Dashboard')]")
+	private WebElement dashBoardModule;
 
 	@FindBy(xpath = "//div[contains(@class, 'sidepanel-body')]//li[.//a[contains(@href, 'viewPimModule')]]")
 	private WebElement PIMModuleBtn;
@@ -55,6 +58,10 @@ public class PIMPage extends BaseClass {
 
 	public void clickOnPIMModule() {
 		PIMModuleBtn.click();
+	}
+	
+	public void clickOnDashboardModule() {
+		dashBoardModule.click();
 	}
 
 	public void goToAddEmployee() {

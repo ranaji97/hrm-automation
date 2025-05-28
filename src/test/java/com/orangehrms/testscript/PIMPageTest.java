@@ -47,7 +47,8 @@ public class PIMPageTest extends BaseClass {
 			employeeListPage.IsEmployeeAddedSuccessfullyInTheList(employeeDetail.getFirstName(),
 					employeeDetail.getMiddleName(), employeeDetail.getLastName());
 		}
-
+		
+		pimPage.clickOnDashboardModule();
 		logoutPage.doLogout();
 	}
 
