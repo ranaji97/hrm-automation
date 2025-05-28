@@ -6,6 +6,8 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,8 +53,6 @@ public class PIMPage extends BaseClass {
 
 	@FindBy(xpath = "//div[contains(@class, 'toast-container')]//p[contains(., 'Successfully Saved')]")
 	private WebElement successDialogContainer;
-	
-	
 
 	public PIMPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -73,13 +73,20 @@ public class PIMPage extends BaseClass {
 	public void addNewEmployee(String firstName, String middleName, String lastName) {
 		goToAddEmployee();
 		waitForSpinnerToLoad();
-		
+
 		firstNameFld.sendKeys(firstName);
 		middleNameFld.sendKeys(middleName);
 		lastNameFld.sendKeys(lastName);
 
 		saveBtn.click();
-		waitForSuccessDialogBoxToBeDisplayed();
+		try {
+			waitForSuccessDialogBoxToBeDisplayed();
+		} catch (TimeoutException e) {
+
+			System.out.println("Success Box Not Found. Checking the error for id.");
+		} catch (StaleElementReferenceException e) {
+
+		}
 
 		try {
 
@@ -91,9 +98,14 @@ public class PIMPage extends BaseClass {
 
 				empIdFld.clear();
 				empIdFld.sendKeys(String.valueOf(id));
-				
+
+				System.out.println("Updated the Id.");
 				saveBtn.click();
-				waitForSuccessDialogBoxToBeDisplayed();
+				try {
+					waitForSuccessDialogBoxToBeDisplayed();
+				} catch (StaleElementReferenceException e) {
+				}
+
 			}
 		} catch (NoSuchElementException e) {
 			System.out.println("Employee Id already exists did not occur. Not required to update id");
@@ -111,7 +123,7 @@ public class PIMPage extends BaseClass {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.invisibilityOf(loadingSpinner));
 	}
-	
+
 	public void waitForSuccessDialogBoxToBeDisplayed() {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
