@@ -14,19 +14,19 @@
       <![CDATA[closeBrowser]]>
     </line>
   </reporter-output>
-  <suite started-at="2025-05-29T00:31:36 IST" name="Default suite" finished-at="2025-05-29T00:34:56 IST" duration-ms="200610">
+  <suite started-at="2025-05-29T00:53:25 IST" name="Default suite" finished-at="2025-05-29T00:58:31 IST" duration-ms="305347">
     <groups>
     </groups>
-    <test started-at="2025-05-29T00:31:36 IST" name="Default test" finished-at="2025-05-29T00:34:56 IST" duration-ms="200610">
+    <test started-at="2025-05-29T00:53:25 IST" name="Default test" finished-at="2025-05-29T00:58:31 IST" duration-ms="305347">
       <class name="com.orangehrms.testscript.PIMPageTest">
-        <test-method is-config="true" signature="openBrowser()[pri:0, instance:com.orangehrms.testscript.PIMPageTest@74fe5c40]" started-at="2025-05-29T00:31:36 IST" name="openBrowser" finished-at="2025-05-29T00:31:44 IST" duration-ms="7318" status="PASS">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:com.orangehrms.testscript.PIMPageTest@74fe5c40]" started-at="2025-05-29T00:53:26 IST" name="openBrowser" finished-at="2025-05-29T00:53:33 IST" duration-ms="7164" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Browser opened]]>
             </line>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="additionOfEmp()[pri:1, instance:com.orangehrms.testscript.PIMPageTest@74fe5c40]" started-at="2025-05-29T00:31:44 IST" name="additionOfEmp" description="Add Employee" finished-at="2025-05-29T00:34:56 IST" duration-ms="191984" status="PASS">
+        <test-method signature="additionOfEmp()[pri:1, instance:com.orangehrms.testscript.PIMPageTest@74fe5c40]" started-at="2025-05-29T00:53:33 IST" name="additionOfEmp" description="Add Employee" finished-at="2025-05-29T00:58:29 IST" duration-ms="295550" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[[ Test script execution starts from here. ]]]>
@@ -36,7 +36,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- additionOfEmp -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.orangehrms.testscript.PIMPageTest@74fe5c40]" started-at="2025-05-29T00:34:56 IST" name="closeBrowser" finished-at="2025-05-29T00:34:56 IST" duration-ms="646" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.orangehrms.testscript.PIMPageTest@74fe5c40]" started-at="2025-05-29T00:58:29 IST" name="closeBrowser" finished-at="2025-05-29T00:58:31 IST" duration-ms="1453" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[closeBrowser]]>

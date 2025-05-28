@@ -51,6 +51,8 @@ public class PIMPage extends BaseClass {
 
 	@FindBy(xpath = "//div[contains(@class, 'toast-container')]//p[contains(., 'Successfully Saved')]")
 	private WebElement successDialogContainer;
+	
+	
 
 	public PIMPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -77,6 +79,7 @@ public class PIMPage extends BaseClass {
 		lastNameFld.sendKeys(lastName);
 
 		saveBtn.click();
+		waitForSuccessDialogBoxToBeDisplayed();
 
 		try {
 
@@ -90,6 +93,7 @@ public class PIMPage extends BaseClass {
 				empIdFld.sendKeys(String.valueOf(id));
 				
 				saveBtn.click();
+				waitForSuccessDialogBoxToBeDisplayed();
 			}
 		} catch (NoSuchElementException e) {
 			System.out.println("Employee Id already exists did not occur. Not required to update id");
@@ -106,6 +110,12 @@ public class PIMPage extends BaseClass {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.invisibilityOf(loadingSpinner));
+	}
+	
+	public void waitForSuccessDialogBoxToBeDisplayed() {
+
+		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOf(successDialogContainer));
 	}
 
 }

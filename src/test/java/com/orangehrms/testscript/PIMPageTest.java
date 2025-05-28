@@ -34,9 +34,9 @@ public class PIMPageTest extends BaseClass {
 
 		List<EmployeeDetails> employeeDetails = new ArrayList<>();
 
-		employeeDetails.add(new EmployeeDetails("Michael", "John", "Miller"));
-		employeeDetails.add(new EmployeeDetails("Tracy", "Neema", "Evans"));
-		employeeDetails.add(new EmployeeDetails("Collin", "T", "Doer"));
+		employeeDetails.add(new EmployeeDetails("Michael", "Philip", "Miller"));
+		employeeDetails.add(new EmployeeDetails("Tracy", "Tyler", "Evans"));
+		employeeDetails.add(new EmployeeDetails("Munroe", "T", "Doer"));
 
 		for (EmployeeDetails employeeDetail : employeeDetails) {
 			pimPage.addNewEmployee(employeeDetail.getFirstName(), employeeDetail.getMiddleName(),
