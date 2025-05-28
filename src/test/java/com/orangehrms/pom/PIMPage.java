@@ -70,6 +70,8 @@ public class PIMPage extends BaseClass {
 
 	public void addNewEmployee(String firstName, String middleName, String lastName) {
 		goToAddEmployee();
+		waitForSpinnerToLoad();
+		
 		firstNameFld.sendKeys(firstName);
 		middleNameFld.sendKeys(middleName);
 		lastNameFld.sendKeys(lastName);
