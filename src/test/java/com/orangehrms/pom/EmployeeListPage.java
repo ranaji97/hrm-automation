@@ -21,9 +21,6 @@ public class EmployeeListPage extends BaseClass {
 	}
 
 	@FindBy(xpath = "//a[contains(text(),'Employee List')]")
-	private WebElement allRowsOfEmployeeListTable;
-
-	@FindBy(xpath = "//a[contains(text(),'Employee List')]")
 	private WebElement empListBtn;
 
 	@FindBy(xpath = "//nav//ul[contains(@class, 'pagination')]//button[.//i[contains(@class, 'right')]]")
