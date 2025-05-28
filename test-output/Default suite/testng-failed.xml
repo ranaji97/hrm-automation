@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.orangehrms.testscript.LoginPageTest">
+      <class name="com.orangehrms.testscript.PIMPageTest">
         <methods>
           <include name="closeBrowser"/>
-          <include name="doFailedLogin"/>
+          <include name="additionOfEmp"/>
           <include name="openBrowser"/>
         </methods>
-      </class> <!-- com.orangehrms.testscript.LoginPageTest -->
+      </class> <!-- com.orangehrms.testscript.PIMPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
